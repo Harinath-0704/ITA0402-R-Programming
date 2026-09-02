@@ -1,0 +1,14 @@
+library(ggplot2)
+data("Titanic")
+
+# Convert Titanic to data frame
+titanic_df <- as.data.frame(Titanic)
+
+# Bar chart survival vs class
+ggplot(titanic_df, aes(x=Class, y=Freq, fill=Survived)) +
+  geom_bar(stat="identity", position="dodge")
+
+# Modify plot by gender
+ggplot(titanic_df, aes(x=Class, y=Freq, fill=Survived)) +
+  geom_bar(stat="identity", position="dodge") +
+  facet_wrap(~Sex)
